@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Neighborhood Map Project" content="Map of Santa Rosa Ca USA">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+   <!-- Bootstrap 4 Alpha CSS(CDN) -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <title>Santa Rosa Public Transportation - Neighborhood Map Project</title>
+
+</head>
+<body>
+    <div class="container-fluid h-100">
+                <div class="options-box">
+                <div class="jumbotron">
+                   <h2>Santa Rosa Public Transportation Stops</h2>
+                </div>
+                <div>
+                    <input class="search" data-bind="textInput: searchOption" placeholder="Search Locations...">
+                <div>
+                    <ul class="flex-column" data-bind="foreach: myLocationsFilter">
+                            <a href="#"><li class="text-white location_list" data-bind="text: title, click: populateAndBounceMarker"></li></a>
+                    </ul>
+                    <img class="foursquare" src="img/foursquare_attr.png" srcset="img/foursquare_attr@2x.png" alt="Powered By Foursquare!">
+                </div>
+              <div id="map"></div>
+    </div>
+
+    <script src="js/knockout-3.4.2.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBIl6ocd0gOVvxKN1hhRLlgAXq9NwDWhcY&callback=startApp" onerror="googleError()"></script>
+</body>
+</html>
