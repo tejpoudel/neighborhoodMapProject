@@ -88,11 +88,12 @@ function mapModel() {
         var stops = [
             { title: 'Greyhound:Bus Stop', lat: 38.4382333, lng:  -122.71320479999997, type: 'Public Transportation'},
             { title: 'Greyhound Lines', lat: 38.395705, lng: -122.71447439999997, type: 'Public Transportation'},
-            { title: 'Bus Schedule Route Information', lat: 38.4379143, lng: -122.71146959999999, type:  'Public Transportation Information'},
             { title: 'Sonoma County Transit', lat: 38.3940118, lng: -122.72268889999998, type:  'Public Transportation'},
-            { title: 'Sonoma County Airport Train Stop', lat: 38.510787, lng: -122.78450700000002, type: 'Public Transportation'},
+            { title: 'Smart Train Station', lat: 38.510787, lng: -122.78450700000002, type: 'Public Transportation'},
             { title: 'Santa Rosa North Train Stop', lat: 38.4551412, lng: -122.7363881, type: 'Public Transportation'},
-            { title: 'Santa Rosa Downtown Train Stop', lat: 38.4370329, lng: -122.7215622, type: 'Public Transportation'}
+            { title: 'Santa Rosa Downtown Train Stop', lat: 38.4370329, lng: -122.7215622, type: 'Public Transportation'},
+            { title: 'Barham Ave & Santa Rosa Ave Bus Stop', lat: 38.427391, lng: -122.713089, type: 'Public Transportation'}
+            // fs_id: '4e8f11fb2c5b20a682053a83'}
         ];
 
         // Set InfoWindow
@@ -156,10 +157,13 @@ var populateInfoWindow = function(marker) {
             clientID = "P0Q5DZXIZJT3ZJEZHNW5Q2XJAKTEBIIC10Y4NXJ5PBJRY15F";
             clientSecret = "UNMCBVHIGDFLO1YEFPLGK3I3ULKLMWFVYAZ3XNXJPZQEY5QQ";
             // URL for Foursquare API
-            var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' +
-                marker.lat + ',' + marker.lng + '&client_id=' + clientID +
-                '&client_secret=' + clientSecret + '&query=' + marker.title +
-                '&v=20170708' + '&m=foursquare';
+
+            var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' + marker.lat + ',' + marker.lng + 
+            '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20170708' + '&m=foursquare' + '&query=' + marker.title;
+            // var foursquareURL = 'https://api.foursquare.com/v2/venues/' + marker.fs_id +
+            //     '&client_id=' + clientID +
+            //     '&client_secret=' + clientSecret +
+            //     '&v=20170708' + '&m=foursquare';
             // Foursquare API
             $.getJSON(foursquareURL).done(function(marker) {
                 var response = marker.response.venues[0];
@@ -178,7 +182,7 @@ var populateInfoWindow = function(marker) {
             }).fail(function() {
                 // Send alert
                 alert(
-                    "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data."
+                   "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data."
                 );
             });
 
