@@ -15,23 +15,37 @@
 
 </head>
 <body>
-    <div class="container-fluid h-100">
-            <div class="options-box">
-                <div class="jumbotron">
-                   <h2>Santa Rosa Public Transportation Stops</h2>
-                </div>
-                <div>
-                    <input class="search" data-bind="textInput: searchOption" placeholder="Search Locations...">
-                </div>
-                <div>
-                    <ul class="flex-column" data-bind="foreach: myLocationsFilter">
-                            <a href="#"><li class="text-white location_list" data-bind="text: title, click: populateAndBounceMarker"></li></a>
-                    </ul>
-                    <img class="foursquare" src="img/foursquare_attr.png" srcset="img/foursquare_attr@2x.png" alt="Powered By Foursquare!">
-                </div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="jumbotron">
+                <h3>Santa Rosa Public Transportation Stops</h3>
             </div>
-            <div id="map"></div>
+            <div>
+                <input class="search" data-bind="textInput: searchOption" placeholder="Search Locations...">
+            </div>
+            <ul class="sidebar-nav" data-bind="foreach: myLocationsFilter">
+                <li class="sidebar-brand">
+                     <a href="#"><li class="text-white location_list" data-bind="text: title, click: populateAndBounceMarker"></li></a>
+                </li>
+            </ul>
+            <img class="foursquare" src="img/foursquare_attr.png" srcset="img/foursquare_attr@2x.png" alt="Powered By Foursquare!">
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+                     
+               <!--  <nav class="navbar navbar-light bg-light">
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+                     <h2>Santa Rosa Public Transportation Stops</h2>
+                </nav> -->
+            </div>
+        </div>
+        <div id="map"></div>
     </div>
+   
+    
 
     <script src="js/knockout-3.4.2.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

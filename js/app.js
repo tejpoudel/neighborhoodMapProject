@@ -211,3 +211,8 @@ function startApp() {
     ko.applyBindings(new mapModel());
 
 }
+
+$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
